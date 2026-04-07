@@ -28,11 +28,11 @@ active_diamonds:
 
   - id: "l2-opportunity-file-associations"
     scale: L2
-    phase: define
-    name: "Narrowing focus on what to build"
+    phase: develop
+    name: "Building validated opportunities"
     parent_id: "l0-purpose"
-    confidence: 0.6
-    evidence_type: data-supported
+    confidence: 0.7
+    evidence_type: test-validated
     cynefin_domain: complicated
     canvas_refs:
       - opportunities.yml
@@ -40,40 +40,40 @@ active_diamonds:
       - jobs-to-be-done.yml
       - gist.yml
     created_at: "2026-04-07"
-    last_progressed: "2026-04-07"
+    last_progressed: "2026-04-08"
     theory_gates_status:
       evidence: pass
-      four_risks: not-checked
+      four_risks: pass
       jtbd: pass
       cynefin: pass
       bias_check: pass
-      privacy: not-checked
+      privacy: pass
       service_quality: not-checked
       corrections: pass
-    notes: "GIST plan created. MVP scoped. Spawned L3 Solution."
+    notes: "MVP scoped and built. Three core opportunities implemented: dashboard, app view, bulk reassign. Privacy: no data collection. Four risks: value validated (works), usability founder-tested, feasibility proven, viability N/A (open source)."
 
   - id: "l3-solution-mvp"
     scale: L3
-    phase: develop
-    name: "Designing and building the MVP"
+    phase: deliver
+    name: "Shipping the MVP"
     parent_id: "l2-opportunity-file-associations"
-    confidence: 0.5
-    evidence_type: data-supported
+    confidence: 0.7
+    evidence_type: test-validated
     cynefin_domain: complicated
     canvas_refs:
       - gist.yml
       - opportunities.yml
     created_at: "2026-04-07"
-    last_progressed: "2026-04-07"
+    last_progressed: "2026-04-08"
     theory_gates_status:
       evidence: pass
-      four_risks: not-checked
+      four_risks: pass
       cynefin: pass
       bias_check: not-checked
       security: not-checked
-      privacy: not-checked
+      privacy: pass
       service_quality: not-checked
       corrections: pass
-    notes: "Spawned from L2 Define. MVP: association dashboard + app-centric view + bulk reassign. SwiftUI, macOS 13+, non-sandboxed. API approach validated by spike."
+    notes: "MVP built, tested, committed, pushed to GitHub. Features: file type table (sortable, searchable), app view with detail, bulk reassign with recommended apps, auto-confirm via AXUIElement, auto-refresh via file monitoring. README updated. Remaining: external user testing, accessibility audit, security review."
 
-last_updated: "2026-04-07"
+last_updated: "2026-04-08"
