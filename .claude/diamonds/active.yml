@@ -1,0 +1,79 @@
+# Mycelium Active Diamonds
+# Tracks all currently active diamonds across all scales.
+
+project_type: solo_hobby
+
+active_diamonds:
+  - id: "l0-purpose"
+    scale: L0
+    phase: complete
+    name: "macos-can-i-open — Purpose"
+    parent_id: null
+    confidence: 0.8
+    evidence_type: data-supported
+    cynefin_domain: complicated
+    canvas_refs:
+      - purpose.yml
+      - jobs-to-be-done.yml
+      - north-star.yml
+    created_at: "2026-04-07"
+    last_progressed: "2026-04-07"
+    theory_gates_status:
+      evidence: pass
+      jtbd: pass
+      cynefin: not-checked
+      bias_check: pass
+      corrections: pass
+    notes: "Completed."
+
+  - id: "l2-opportunity-file-associations"
+    scale: L2
+    phase: define
+    name: "Narrowing focus on what to build"
+    parent_id: "l0-purpose"
+    confidence: 0.6
+    evidence_type: data-supported
+    cynefin_domain: complicated
+    canvas_refs:
+      - opportunities.yml
+      - user-needs.yml
+      - jobs-to-be-done.yml
+      - gist.yml
+    created_at: "2026-04-07"
+    last_progressed: "2026-04-07"
+    theory_gates_status:
+      evidence: pass
+      four_risks: not-checked
+      jtbd: pass
+      cynefin: pass
+      bias_check: pass
+      privacy: not-checked
+      service_quality: not-checked
+      corrections: pass
+    notes: "GIST plan created. MVP scoped. Spawned L3 Solution."
+
+  - id: "l3-solution-mvp"
+    scale: L3
+    phase: develop
+    name: "Designing and building the MVP"
+    parent_id: "l2-opportunity-file-associations"
+    confidence: 0.5
+    evidence_type: data-supported
+    cynefin_domain: complicated
+    canvas_refs:
+      - gist.yml
+      - opportunities.yml
+    created_at: "2026-04-07"
+    last_progressed: "2026-04-07"
+    theory_gates_status:
+      evidence: pass
+      four_risks: not-checked
+      cynefin: pass
+      bias_check: not-checked
+      security: not-checked
+      privacy: not-checked
+      service_quality: not-checked
+      corrections: pass
+    notes: "Spawned from L2 Define. MVP: association dashboard + app-centric view + bulk reassign. SwiftUI, macOS 13+, non-sandboxed. API approach validated by spike."
+
+last_updated: "2026-04-07"

@@ -1,0 +1,60 @@
+# BVSSH Health Canvas — Jonathan Smart
+# Source: "Better Value Sooner Safer Happier"
+# Populated through: /bvssh-check skill
+
+better:
+  description: "Quality, compliance, sustainability outcomes"
+  metrics: []
+  current_state: ""
+  trend: ""  # improving|stable|declining
+
+value:
+  description: "Desirable outcomes for customers and organization"
+  metrics: []
+  current_state: ""
+  trend: ""
+
+sooner:
+  description: "Time to value, flow efficiency, lead time"
+  metrics: []
+  current_state: ""
+  trend: ""
+
+safer:
+  description: "Governance, risk, compliance, security, resilience"
+  metrics: []
+  current_state: ""
+  trend: ""
+
+happier:
+  description: "Team wellbeing, customer satisfaction, societal impact"
+  metrics: []
+  current_state: ""
+  trend: ""
+
+# Anti-patterns from Smart (BVSSH):
+# MORF = "Measures of Random Functioning" -- tracking metrics that don't connect to
+# actual outcomes (e.g., story points, velocity, lines of code). Replace with
+# outcome metrics that connect to BVSSH dimensions.
+# Other anti-patterns: Big-bang transformations, mandating one framework,
+# focusing on output velocity over outcome value, reorganizing without
+# changing ways of working.
+anti_patterns_detected: []
+# - pattern: "MORF (Measures of Random Functioning)"
+#   description: "Tracking velocity instead of outcome metrics"
+#   evidence: ""
+#   date: ""
+
+# Trend tracking: Record last 3-5 assessments for trajectory.
+# Updated by /bvssh-check and /feedback-review skills.
+# KEY WARNING: If Sooner is improving while Safer or Happier are declining,
+# this is the core BVSSH anti-pattern (trading safety/wellbeing for speed).
+assessment_history: []
+# - date: "YYYY-MM-DD"
+#   better: "improving|stable|declining"
+#   value: "improving|stable|declining"
+#   sooner: "improving|stable|declining"
+#   safer: "improving|stable|declining"
+#   happier: "improving|stable|declining"
+
+last_assessed: null

@@ -1,0 +1,54 @@
+# North Star Framework Canvas
+# Source: Amplitude North Star Framework, Sean Ellis
+# Populated through: /interview skill
+
+# The single metric that captures the core value users get from the product.
+metric:
+  name: "Time saved vs manual method"
+  definition: "Average time saved per session compared to manually changing file type associations via Get Info > Change All for the same number of file types"
+  current_value: null
+  target_value: "10x faster than manual method for 5+ file types"
+  measurement_frequency: "per-release"
+
+# Input metrics: levers that directly drive the North Star.
+input_metrics:
+  - name: "GitHub stars"
+    definition: "Total stars on the GitHub repository"
+    owner: "solo maintainer"
+    current_value: 0
+    target_value: null
+    category: "acquisition"
+  - name: "File types manageable per action"
+    definition: "Number of file types a user can reassign in a single bulk operation"
+    owner: "solo maintainer"
+    current_value: 0
+    target_value: "unlimited"
+    category: "engagement"
+  - name: "Community contributions"
+    definition: "PRs, issues, and community engagement on GitHub"
+    owner: "community"
+    current_value: 0
+    target_value: null
+    category: "engagement"
+
+# Trust dimension: How trust/safety is measured.
+trust_dimension:
+  metric: "Zero silent changes -- every file type modification requires explicit user action"
+  current_value: null
+  target_value: "100% user-initiated changes"
+
+# Guardrail metrics: Things that must NOT degrade while optimizing the North Star.
+guardrails:
+  - name: "No data collection"
+    threshold: "Zero telemetry, zero analytics, zero network calls"
+  - name: "App stability"
+    threshold: "No crashes or system-level side effects from association changes"
+
+metric_trend: []
+
+goodhart_check:
+  last_checked: null
+  counter_metric_divergence_detected: false
+  notes: ""
+
+last_updated: "2026-04-07"

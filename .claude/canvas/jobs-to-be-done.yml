@@ -1,0 +1,85 @@
+# Jobs to be Done Canvas — Clayton Christensen / Tony Ulwick
+# Source: "The Innovator's Dilemma", Outcome-Driven Innovation
+# Populated through: /interview skill
+
+jobs:
+  - job_statement: "When a third-party app overwrites my file type associations, I want to bulk-reassign them to my preferred apps, so I can regain control without manually changing each file type one by one."
+    type: functional
+    hiring_criteria:
+      - "Can reassign multiple file types at once"
+      - "Works on modern macOS versions"
+      - "Simple and fast to use"
+    firing_criteria:
+      - "Requires too many clicks (no better than manual method)"
+      - "Makes changes without my explicit approval"
+      - "Runs as a background service when I don't need it"
+    current_solutions:
+      - "Right-click > Get Info > Change All (one file type at a time)"
+      - "duti CLI tool (outdated, may not work on modern macOS)"
+      - "dotViewer (middleware approach, must run in Dock)"
+    underserved_outcomes:
+      - outcome: "Reassign multiple file types to the same app in one action"
+        importance: 9
+        satisfaction_with_current: 2
+        opportunity_score: 16
+      - outcome: "See which app currently owns each file type"
+        importance: 8
+        satisfaction_with_current: 4
+        opportunity_score: 12
+      - outcome: "Reset file types back to system defaults or to no association"
+        importance: 7
+        satisfaction_with_current: 2
+        opportunity_score: 12
+    evidence_sources:
+      - type: interview
+        summary: "Founder interview -- personal experience as power user"
+        date: "2026-04-07"
+
+  - job_statement: "When I set up file type associations, I want to feel confident that my choices stick and won't be silently overwritten, so I can trust my development/creative environment."
+    type: emotional
+    hiring_criteria:
+      - "Transparent about what it changes"
+      - "No background processes or hidden behavior"
+    firing_criteria:
+      - "App itself overrides my choices"
+      - "Unclear what changed after running"
+    current_solutions:
+      - "Manually verifying after each app install"
+    underserved_outcomes:
+      - outcome: "Feel in control of my macOS environment"
+        importance: 9
+        satisfaction_with_current: 3
+        opportunity_score: 15
+    evidence_sources:
+      - type: interview
+        summary: "Founder interview -- core motivation is control and trust"
+        date: "2026-04-07"
+
+  - job_statement: "When I find a tool that solves a common power-user pain, I want to share it with my dev/creative community, so I can help others and be seen as someone who finds great tools."
+    type: social
+    hiring_criteria:
+      - "Easy to recommend (open source, free, simple)"
+      - "Looks professional and trustworthy"
+    firing_criteria:
+      - "Embarrassing UI or unreliable behavior"
+    current_solutions:
+      - "Sharing CLI workarounds or outdated app recommendations"
+    underserved_outcomes:
+      - outcome: "Recommend a polished, modern solution for file type management"
+        importance: 6
+        satisfaction_with_current: 2
+        opportunity_score: 10
+    evidence_sources:
+      - type: interview
+        summary: "Open source intent and GitHub stars as success metric suggest community sharing is valued"
+        date: "2026-04-07"
+
+# Non-consumption: Users who have the job but aren't using ANY solution
+non_consumption:
+  identified: true
+  segments:
+    - description: "macOS users who are annoyed by wrong apps opening files but don't know alternatives exist beyond the manual Get Info method"
+      barrier: "Don't know CLI tools like duti exist; existing GUI tools are abandoned or outdated"
+      evidence: "Founder research found no modern, maintained GUI solution"
+
+last_updated: "2026-04-07"

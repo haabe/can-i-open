@@ -1,0 +1,125 @@
+# GIST Planning Canvas — Itamar Gilad
+# Source: "Evidence Guided"
+# Populated through: /gist-plan skill
+
+# Goals: Measurable outcomes (from North Star input metrics)
+goals:
+  - name: "Ship usable v0.1"
+    metric: "Time saved vs manual method"
+    current: null
+    target: "10x faster than manual for 5+ file types"
+    timeframe: "v0.1 release"
+    okr_connection: "North Star: time saved"
+  - name: "First external users"
+    metric: "GitHub stars"
+    current: 0
+    target: 10
+    timeframe: "Within 1 month of v0.1 release"
+    okr_connection: "Input metric: community adoption"
+
+# Ideas: Hypothetical ways to achieve goals
+ideas:
+  - name: "Association dashboard"
+    goal_connection: "Ship usable v0.1"
+    description: "Browse all file types on the system, see which app handles each (viewer/editor), filter and search. The read-side core of the app."
+    ice_score:
+      impact: 9
+      confidence: 8
+      ease: 7
+      total: 8.0
+    confidence_level: 0.7
+    evidence_log:
+      - date: "2026-04-07"
+        evidence_type: "experiment"
+        summary: "API spike confirmed LSCopyDefaultRoleHandlerForContentType works, ~0.16ms/UTI, returns all handlers. App bundle scanning finds all claimed types."
+        confidence_delta: 0.4
+    status: active
+
+  - name: "App-centric view"
+    goal_connection: "Ship usable v0.1"
+    description: "View file types grouped by app -- 'Show me everything VS Code claims' or 'everything Chrome hijacked.' Built from CFBundleDocumentTypes scanning."
+    ice_score:
+      impact: 8
+      confidence: 7
+      ease: 7
+      total: 7.3
+    confidence_level: 0.7
+    evidence_log:
+      - date: "2026-04-07"
+        evidence_type: "experiment"
+        summary: "Spike confirmed app bundle scanning works. VS Code claims 65 types, VLC 102. Data is rich and available."
+        confidence_delta: 0.4
+    status: active
+
+  - name: "Bulk reassign"
+    goal_connection: "Ship usable v0.1"
+    description: "Select multiple file types, assign to one app. Each change triggers a macOS confirmation dialog. UX must make the dialog sequence predictable and manageable."
+    ice_score:
+      impact: 9
+      confidence: 6
+      ease: 5
+      total: 6.7
+    confidence_level: 0.5
+    evidence_log:
+      - date: "2026-04-07"
+        evidence_type: "experiment"
+        summary: "LSSetDefaultRoleHandlerForContentType works but triggers one macOS dialog per type. macOS groups related extensions (.txt/.text). API returns 0 immediately, change deferred until user clicks."
+        confidence_delta: 0.3
+    status: active
+
+  - name: "Snapshot and restore"
+    goal_connection: "Ship usable v0.1"
+    description: "Save current file type associations as a snapshot. Restore after app installs overwrite them. The gap no existing tool fills."
+    ice_score:
+      impact: 8
+      confidence: 5
+      ease: 4
+      total: 5.7
+    confidence_level: 0.3
+    evidence_log:
+      - date: "2026-04-07"
+        evidence_type: "market_data"
+        summary: "Identified as clearest gap across all tools (0xdevalias, Joel Mama blog). Restore = bulk set = dialog storm. Deferred to v0.2."
+        confidence_delta: 0.0
+    status: shelved
+    kill_reason: "Deferred to v0.2. Depends on solving bulk-write UX first."
+
+# Steps: Building evidence for the top ideas
+steps:
+  - idea_connection: "Association dashboard + App-centric view + Bulk reassign"
+    name: "step-1-mvp-scaffold"
+    hypothesis: "A SwiftUI app can display all file type associations grouped by app and by type, and allow users to change them, faster than the manual Get Info method."
+    method: "feature_experiment"
+    success_criteria: "Working app that: (1) lists all file types with their current handlers, (2) shows app-centric view of claimed types, (3) allows selecting types and reassigning to a different app, (4) is demonstrably faster than manual method for 5+ types."
+    time_box: "2 weeks"
+    result: ""
+    confidence_delta: 0
+
+# Tasks: Current step work
+current_tasks:
+  - step_connection: "step-1-mvp-scaffold"
+    description: "Set up Xcode project with SwiftUI, macOS 13+ target, non-sandboxed"
+    status: todo
+    assigned_to: "solo maintainer"
+  - step_connection: "step-1-mvp-scaffold"
+    description: "Build data layer: enumerate UTIs from installed apps (CFBundleDocumentTypes) and query current default handlers (LSCopy*)"
+    status: todo
+    assigned_to: "solo maintainer"
+  - step_connection: "step-1-mvp-scaffold"
+    description: "Build file-type-centric view: searchable/filterable list of all types with current handler, extension, and UTI"
+    status: todo
+    assigned_to: "solo maintainer"
+  - step_connection: "step-1-mvp-scaffold"
+    description: "Build app-centric view: select an app, see all file types it claims, see which it currently owns"
+    status: todo
+    assigned_to: "solo maintainer"
+  - step_connection: "step-1-mvp-scaffold"
+    description: "Build reassign flow: select file types, pick target app, trigger LSSetDefaultRoleHandlerForContentType for each, show progress"
+    status: todo
+    assigned_to: "solo maintainer"
+  - step_connection: "step-1-mvp-scaffold"
+    description: "Test with real-world scenario: reassign 10+ source code file types from Xcode to VS Code and measure time vs manual method"
+    status: todo
+    assigned_to: "solo maintainer"
+
+last_updated: "2026-04-07"

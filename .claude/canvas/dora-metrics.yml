@@ -1,0 +1,82 @@
+# DORA Metrics Canvas — Forsgren, Humble, Kim
+# Source: "Accelerate: The Science of Lean Software and DevOps"
+# Populated through: /dora-check skill
+
+# The Four Key Metrics
+deployment_frequency:
+  current: ""
+  target: ""
+  classification: null  # elite|high|medium|low
+  # Elite: On-demand (multiple/day) | High: Weekly-monthly | Medium: Monthly-6mo | Low: >6mo
+
+lead_time_for_changes:
+  current: ""
+  target: ""
+  classification: null
+  # Elite: <1 hour | High: 1 day-1 week | Medium: 1 week-1 month | Low: >1 month
+
+change_failure_rate:
+  current: ""
+  target: ""
+  classification: null
+  # Elite: 0-15% | High: 16-30% | Medium: 31-45% | Low: 46-60%
+
+time_to_restore:
+  current: ""
+  target: ""
+  classification: null
+  # Elite: <1 hour | High: <1 day | Medium: 1 day-1 week | Low: >1 week
+
+overall_classification: null  # elite|high|medium|low
+
+# Capability Assessment (24 capabilities from Accelerate)
+capabilities:
+  continuous_delivery:
+    version_control: null  # 1-5 score
+    deployment_automation: null
+    continuous_integration: null
+    trunk_based_development: null
+    test_automation: null
+    test_data_management: null
+    shift_left_security: null
+    continuous_delivery: null
+  architecture:
+    loosely_coupled: null
+    empowered_teams: null
+  product_process:
+    customer_feedback: null
+    small_batches: null
+    team_experimentation: null
+    work_visibility: null
+  lean_management:
+    change_approval: null
+    monitoring: null
+    proactive_notification: null
+    wip_limits: null
+    visual_management: null
+  culture:
+    westrum_generative: null
+    learning_culture: null
+    transformational_leadership: null
+    job_satisfaction: null
+
+# Trend tracking: Record last 3-5 measurements to see trajectory.
+# Updated by /dora-check and /feedback-review skills.
+measurement_history: []
+# - date: "YYYY-MM-DD"
+#   deployment_frequency: ""
+#   lead_time: ""
+#   change_failure_rate: ""
+#   time_to_restore: ""
+#   overall: ""
+
+# Goodhart's Law warning:
+# If deployment frequency is rising but change failure rate is ALSO rising,
+# the team is shipping faster but less safely. This is a false improvement.
+# Always check the pair: frequency + CFR, lead time + CFR.
+goodhart_check:
+  last_checked: null
+  counter_metric_divergence_detected: false
+  notes: ""
+
+last_measured: null

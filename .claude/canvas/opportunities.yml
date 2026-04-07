@@ -1,0 +1,122 @@
+# Opportunity Solution Tree Canvas — Teresa Torres
+# Source: "Continuous Discovery Habits"
+# Populated through: /interview + web research
+
+# Root: The desired outcome (from North Star input metrics)
+desired_outcome:
+  metric: "Time saved vs manual method"
+  current_value: null
+  target_value: "10x faster than manual for 5+ file types"
+
+# Opportunities: Customer needs/pain points discovered through research
+opportunities:
+  - name: "Bulk file type reassignment"
+    description: "Users need to reassign multiple file types to a preferred app in one action, instead of one-by-one via Get Info > Change All"
+    type: functional
+    evidence:
+      type: data-supported
+      sources:
+        - "Founder interview (2026-04-07)"
+        - "Apple Community Forums: multiple threads spanning years (file associations keep changing, remove associations, disassociate extensions)"
+        - "MacRumors Forums: threads about silent defaults hijacking"
+        - "duti GitHub repo (~1,800 stars) -- demand for programmatic association management"
+        - "utiluti (scriptingosx, March 2025) -- new CLI tool built because existing solutions inadequate"
+        - "0xdevalias dotfiles issue -- developer tracking dump/restore of file associations"
+        - "Alex Peattie blog -- documenting pain of associating dozens of source code extensions"
+      interview_count: 1
+    frequency: high
+    impact: high
+    strategic_alignment: high
+    cynefin_domain: complicated
+    sub_opportunities:
+      - name: "See all current associations at a glance"
+        description: "No existing tool provides a clear overview of which app owns which file types"
+        type: functional
+        evidence:
+          type: data-supported
+          sources:
+            - "Gap analysis: macOS native only shows one-at-a-time via Get Info"
+            - "SwiftDefaultApps provided this but is effectively unmaintained"
+          interview_count: 0
+        frequency: high
+        impact: medium
+        strategic_alignment: high
+        cynefin_domain: complicated
+      - name: "Reset associations to system default or none"
+        description: "After uninstalling an app, its file type claims persist as orphans. Users want to clean these up."
+        type: functional
+        evidence:
+          type: data-supported
+          sources:
+            - "Apple Community Forum: Remove ALL file associations of an app"
+            - "Apple Community Forum: Removing obsolete file type associations (decade-old thread)"
+            - "No existing tool provides reset-to-default"
+          interview_count: 0
+        frequency: medium
+        impact: medium
+        strategic_alignment: high
+        cynefin_domain: complicated
+    solutions: []
+
+  - name: "Trust that associations stay as set"
+    description: "Users feel frustrated and out of control when app installs or updates silently overwrite their carefully configured defaults"
+    type: emotional
+    evidence:
+      type: data-supported
+      sources:
+        - "Founder interview"
+        - "MacRumors: 'Something keeps changing my open with defaults'"
+        - "Apple Community: 'File Associations Keep Changing' (multi-year thread)"
+        - "Multiple reports of associations reverting after updates"
+      interview_count: 1
+    frequency: high
+    impact: high
+    strategic_alignment: high
+    cynefin_domain: complex
+    sub_opportunities:
+      - name: "Snapshot and restore associations"
+        description: "No existing tool lets you save current state and roll back after an app install. Identified as the clearest gap across all tools."
+        type: functional
+        evidence:
+          type: data-supported
+          sources:
+            - "0xdevalias dotfiles issue -- explicitly tracking this as unmet need"
+            - "Joel Mama blog -- Time Machine workaround for restoring plist"
+            - "Gap analysis: zero existing tools offer this"
+          interview_count: 0
+        frequency: medium
+        impact: high
+        strategic_alignment: high
+        cynefin_domain: complicated
+    solutions: []
+
+# Competitive landscape summary (from research)
+# Existing tools and their status:
+# - duti: CLI, ~1,800 stars, abandoned (last update 2020), no GUI
+# - RCDefaultApp: Dead since macOS Sierra
+# - SwiftDefaultApps: Barely maintained, no release since 2019
+# - utiluti: Active CLI (March 2025), sysadmin-oriented, no GUI
+# - dotViewer: Preview tool, not an association manager
+# - macOS native: One-at-a-time via Get Info, no bulk management
+#
+# Key gap: No modern GUI app for bulk management with snapshot/restore
+
+# Technical feasibility notes (from API research + spike 2026-04-07):
+# - LSSetDefaultRoleHandlerForContentType: WORKS, triggers user confirmation dialog per call
+# - LSCopyDefaultRoleHandlerForContentType: works freely, blazing fast (~0.16ms per UTI)
+# - LSCopyAllRoleHandlersForContentType: works, returns all candidate apps
+# - UniformTypeIdentifiers framework: works for type identity/hierarchy
+# - App bundle scanning (CFBundleDocumentTypes): works, found 120 apps, VS Code claims 65 types, VLC claims 102
+# - CONFIRMED: macOS groups related extensions in dialog (.txt and .text shown together)
+# - CONFIRMED: API returns 0 immediately, change deferred until user clicks dialog
+# - UX CONSTRAINT: Each LSSet call = one dialog. Bulk operations need UX design around this.
+# - Distribution: Direct distribution recommended (full system access) over App Store (sandbox limits discovery)
+
+bias_checks:
+  - date: "2026-04-07"
+    biases_mitigated:
+      - "Single-source bias: validated founder pain with external community evidence (forums, GitHub stars, blog posts)"
+    research_design_adjustments:
+      - "Searched for disconfirming evidence (tools that already solve this well) -- found none that are modern and maintained"
+
+last_updated: "2026-04-07"

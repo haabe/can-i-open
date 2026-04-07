@@ -1,0 +1,38 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Swift build
+.build/
+.swiftpm/
+DerivedData/
+xcuserdata/
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Claude Code local settings (per-developer overrides, never committed)
+# NOTE: .claude/settings.json IS committed -- it's the shared hook config.
+# .claude/settings.local.json is for personal permission overrides.
+.claude/settings.local.json
+
+# JiT generated files (stack-specific, regenerated per project)
+.claude/jit-tooling/active-stack.yml
+
+# Eval results (generated per run, not part of the boilerplate)
+.claude/evals/results/*.json
+
+# Optimization results (generated per run)
+.claude/optimization/results/*.json
+.claude/optimization/baseline.json
+.claude/optimization/exemplars/
+
+# Preflight stamp (temporary, per-session)
+/tmp/mycelium-preflight-stamp
+
+# Node modules (if any tooling is added later)
+node_modules/

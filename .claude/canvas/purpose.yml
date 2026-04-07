@@ -1,0 +1,44 @@
+# Purpose Canvas — Sinek's Golden Circle
+# Source: "Start with Why" by Simon Sinek
+# Populated through: /interview skill (Phase 1)
+
+# WHY: The organization's purpose, cause, or belief.
+# Not "to make money" — that's a result, not a cause.
+why: "Give macOS power users bulk control over file type associations -- replacing tedious one-by-one manual changes with a single, focused native app."
+
+# HOW: Guiding principles that differentiate your approach.
+# 3-5 principles that express HOW you live your Why.
+how:
+  - principle: "User consent first"
+    description: "Never silently change file associations. Every change is explicit and user-initiated."
+  - principle: "Single purpose"
+    description: "Do one thing well -- manage file type associations. No feature creep, no bloat."
+  - principle: "Native and focused"
+    description: "A native macOS app that runs when needed, not a background service or menu bar utility."
+  - principle: "Open source"
+    description: "Free, transparent, and community-driven. No data collection, no telemetry."
+
+# WHAT: Products, services, or offerings that express the Why.
+what:
+  - name: "macos-can-i-open"
+    description: "A native macOS app for bulk file type association management. Map filetypes to apps, reset associations, manage groups of file types across multiple applications."
+
+# Ethical boundaries: What this product will NEVER do.
+# Defined at purpose level — non-negotiable.
+ethical_boundaries:
+  - "Never silently change file associations without explicit user consent"
+  - "Never collect user data or telemetry"
+  - "Never become bloated -- stay focused on the single purpose of file type management"
+
+# Evidence: What supports this purpose statement?
+evidence:
+  sources:
+    - type: "founder_interview"
+      summary: "Solo developer frustrated by third-party apps overwriting file type associations. Researched existing tools (duti, dotViewer, others) and found them outdated or unsuitable for modern macOS."
+      date: "2026-04-07"
+    - type: "market_analysis"
+      summary: "Web research confirmed widespread pain: Apple Community Forums (multi-year threads), MacRumors threads, duti (~1,800 GitHub stars, abandoned), RCDefaultApp (dead), SwiftDefaultApps (barely maintained), utiluti (new CLI, no GUI). No modern GUI solution exists. API feasibility confirmed via LaunchServices (non-deprecated). Key risk: macOS 12+ confirmation dialogs."
+      date: "2026-04-07"
+  confidence: 0.8  # Validated by external community evidence + API research
+
+last_validated: "2026-04-07"
